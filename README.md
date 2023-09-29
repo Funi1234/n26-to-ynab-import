@@ -60,8 +60,6 @@ If using powershell you will need to install the following using an admin powers
   ```
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
 1. Get a Personal Access API Key from [YNAB](https://app.ynab.com/settings/developer)
 2. Clone the repo
    ```sh
