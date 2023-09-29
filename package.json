@@ -1,0 +1,30 @@
+{
+  "name": "n26-to-ynab-import",
+  "version": "1.0.0",
+  "description": "Using ynab and docker import transactions from N26",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Funi1234/n26-to-ynab-import.git"
+  },
+  "keywords": [
+    "n26",
+    "ynab"
+  ],
+  "author": "Funi1234",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Funi1234/n26-to-ynab-import/issues"
+  },
+  "homepage": "https://github.com/Funi1234/n26-to-ynab-import#readme",
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
+    "iconv-lite": "^0.6.3",
+    "ynab": "^2.0.0"
+  }
+}
