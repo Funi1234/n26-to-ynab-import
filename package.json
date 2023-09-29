@@ -16,7 +16,7 @@
     "ynab"
   ],
   "author": "Funi1234",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Funi1234/n26-to-ynab-import/issues"
   },

@@ -1,12 +1,11 @@
 import * as ynab from './ynabWrap.js';
-import { subMonths, format, parseISO } from 'date-fns';
+import { subDays, subMonths, format, parseISO, parse } from 'date-fns';
 
-import * as ps from './runPowershell.js';
+// import * as ps from './runPowershell.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import fs from 'fs';
-import iconv from 'iconv-lite';
-import dotenv from 'dotenv'
+import * as rd from './runDocker.js'
+import dotenv from 'dotenv';
 
 (async () => {
     const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -35,23 +34,17 @@ import dotenv from 'dotenv'
     const reconciledTrans = allTrans.data.transactions.filter(transaction => transaction.cleared === 'reconciled');
     
     const dateOfLastReconciledTrans = reconciledTrans[reconciledTrans.length -1].date
+    const bufferDate = format(subDays(parse(dateOfLastReconciledTrans, 'yyyy-MM-dd', new Date()), 2), 'yyyy-MM-dd');
 
-    // Get the full path of the current directory
-    const filePath = path.win32.resolve(__dirname, 'runDocker.ps1')
-
+    var transactions = []
     try {
-        await ps.runPowerShellScript(filePath, [`transactions --limit 100 --from ${dateOfLastReconciledTrans} --to ${format(new Date(), 'yyyy-MM-dd')} json`])
+        transactions = JSON.parse(await rd.runDocker(bufferDate))
     } catch (error) {
         console.log(error)
         process.exit(3);
     }
 
     try {
-        const transFile = path.win32.resolve(__dirname, 'transactions.json')
-        const data = fs.readFileSync(transFile);
-        const utf8Data = iconv.decode(data, 'utf16le');
-        const transactions = JSON.parse(utf8Data);
-
         const sendToYNAB = []
         const importIDs = {}
         for (const trans of transactions) {
@@ -75,11 +68,15 @@ import dotenv from 'dotenv'
 
               sendToYNAB.push(t)
         }
-        
-        const sent = await ynab.addTransactions(budget.id, {"transactions": sendToYNAB})
+
+
+        if (sendToYNAB.length == 0) {
+            process.exit(4);
+        }
+        await ynab.addTransactions(budget.id, {"transactions": sendToYNAB})
 
     } catch (error) {
         console.log(error)
-        process.exit(4);
+        process.exit(5);
     }
 })();
