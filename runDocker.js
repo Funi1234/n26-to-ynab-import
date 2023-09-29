@@ -14,14 +14,17 @@ export function runDocker(dateOfLastReconciledTrans) {
 
     return new Promise((resolve, reject) => {
         var ps;
+        const command = `run -e N26_USERNAME="${N26U}" -e N26_PASSWORD="${N26P}" -e N26_DEVICE_TOKEN="${DEVICE_TOKEN_UUID}" guitmz/n26 /n26 transactions --limit 100 --from ${dateOfLastReconciledTrans} --to ${format(new Date(), 'yyyy-MM-dd')} json`
 
         var opsys = process.platform;
         if (opsys == "darwin") {
-            console.log("TODO: Implement")
+            console.log("TODO: Test")
+            ps = spawn("docker", [command]);
         } else if (opsys == "win32" || opsys == "win64") {
-            ps = spawn("powershell.exe", [`docker run -e N26_USERNAME="${N26U}" -e N26_PASSWORD="${N26P}" -e N26_DEVICE_TOKEN="${DEVICE_TOKEN_UUID}" guitmz/n26 /n26 transactions --limit 100 --from ${dateOfLastReconciledTrans} --to ${format(new Date(), 'yyyy-MM-dd')} json`]);
+            ps = spawn("powershell.exe", [`docker ${command}`]);
         } else if (opsys == "linux") {
-            console.log("TODO: Implement")
+            console.log("TODO: Test")
+            ps = spawn("powershell.exe", [command]);
         }
   
         let output = '';
