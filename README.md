@@ -35,7 +35,7 @@
 
 I just wanted to be able to import N26 transactions into YNAB without having to download a CSV and then use the file import tool.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -83,7 +83,7 @@ If using powershell you will need to install the following using an admin powers
     N26P="Password!"
    ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
@@ -98,7 +98,7 @@ If setup correct you should just be able to run main.js
 
 The code will run and then pause, at that point you should get a mobile "Authorize Login" notification from N26. Authorize it and this code will continue.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 <!-- CONTRIBUTING -->
@@ -115,7 +115,7 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
@@ -124,7 +124,7 @@ Don't forget to give the project a star! Thanks again!
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
@@ -135,7 +135,7 @@ Dylan Conway - [@Funi1234](https://twitter.com/Funi1234)
 
 Project Link: [https://github.com/Funi1234/n26-to-ynab-import](https://github.com/Funi1234/n26-to-ynab-import)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
@@ -149,7 +149,7 @@ These resources helped.
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 * [Img Shields](https://shields.io)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 
