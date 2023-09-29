@@ -96,6 +96,8 @@ If setup correct you should just be able to run main.js
   node ./main.js
   ```
 
+The code will run and then pause, at that point you should get a mobile "Authorize Login" notification from N26. Authorize it and this code will continue.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
