@@ -1,4 +1,5 @@
-
+> [!CAUTION]
+> The project doesnt work anymore. N26 has Migrated to a GraphQL API and there is no solution yet. 2024-01-07
 
 
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
